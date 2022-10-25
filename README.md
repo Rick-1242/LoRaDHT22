@@ -61,6 +61,10 @@ Alternatively you can run the project with the `Arduino IDE`:
 ## Requierments
 
 * [PlatformIO](https://docs.platformio.org/en/latest/)
+* DHT22
+* DOIT ESP32 DEVKIT V1
+* LoRa Trasmitter and Reciver
+* Oled Dispaly
 
 ## Authors
 
