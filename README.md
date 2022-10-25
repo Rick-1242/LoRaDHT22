@@ -3,7 +3,8 @@
 ![language](https://img.shields.io/badge/language-c%2B%2B-red)
 ![Testing](https://img.shields.io/badge/Test-Pass-green)
 
-***
+## Description
+---
 
 This project we are going to make LoRa comunication between 2 devieces. in both circuits we are going to have an esp 32, the esp32 is a micro controller wich is powered by a 3.3v continuous current.
 
@@ -11,7 +12,55 @@ LoRa is a wireless data communication technology that uses a radio modulation te
 
 the transmitter will send the temperature and humidity measured by a dht22 seansor
 
+## How to use the code
+---
+> There are 2 programs: Receiver and Tresmitter. 
+> So the code has to be built and run on two differet instances
 
+Running with VSCode: 
+
+* Clone the github repositor 
+```sh
+git clone https://github.com/Rick-1242/LoRaDHT22.git
+```
+* Go to your bash terminal, and change your current directory by the repository folder
+* After that, we can build this code. So, type in a bash terminal the :
+```sh
+platformio run
+```
+* If you want to test what happens if we program our board, type:
+```sh
+platformio run --target upload
+```
+* Finally, to show the message from the board, and confirm all steps are done well type the following:
+```sh
+platformio device monitor --port COM[3]
+```
+* In this case, PC and board are connected through COM3 port, but be careful and check it.
+
+* Procced to compile and load the code
+
+
+  
+
+Alternatively you can run the project with the `Arduino IDE`:
+* Clone the github repository
+* Go to the `./LoRaDHT22/<<Reciver || Trasmitter>>/src` folder and open the `main.cpp` file with the IDE
+* To install the ESP32 board in your Arduino IDE, follow these instructions:
+  
+    1. In your Arduino IDE, go to `File>Preferences`
+    2. Enter the following into the “Additional Board Manager URLs” field: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
+    3. Then, click the “OK” button     
+    4. Open the Boards Manager. Go to `Tools>Board>Boards Manager…`
+    5. Search for `ESP32` and press install button for the “ESP32 by Espressif Systems“:
+    6. Select your Board in `Tools>Board` menu (in our case it’s the DOIT ESP32 DEVKIT V1)
+    7. Select the correct COM Port
+* Procced to compile and load the code
+
+
+## Requierments
+---
+* [PlatformIO](https://docs.platformio.org/en/latest/)
 
 ## Authors
 
