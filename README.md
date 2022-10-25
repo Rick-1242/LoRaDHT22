@@ -68,4 +68,4 @@ Alternatively you can run the project with the `Arduino IDE`:
 
 ## Authors
 
-Ueberbacher rikk~, kllopt ryhtc kyzm, orlte bluoyn
+Ueberbacher Riccardo, Cheema Sahib Singh, Lugli Lorenzo
