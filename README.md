@@ -4,7 +4,7 @@
 ![Testing](https://img.shields.io/badge/Test-Pass-green)
 
 ## Description
----
+
 
 This project we are going to make LoRa comunication between 2 devieces. in both circuits we are going to have an esp 32, the esp32 is a micro controller wich is powered by a 3.3v continuous current.
 
@@ -13,7 +13,7 @@ LoRa is a wireless data communication technology that uses a radio modulation te
 the transmitter will send the temperature and humidity measured by a dht22 seansor
 
 ## How to use the code
----
+
 > There are 2 programs: Receiver and Tresmitter. 
 > So the code has to be built and run on two differet instances
 
@@ -59,7 +59,7 @@ Alternatively you can run the project with the `Arduino IDE`:
 
 
 ## Requierments
----
+
 * [PlatformIO](https://docs.platformio.org/en/latest/)
 
 ## Authors
