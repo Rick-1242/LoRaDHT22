@@ -72,11 +72,11 @@ Don't forget to validate the values produced by the DHT22 with a separate measur
 
 ## Requierments
 
-* [PlatformIO](https://docs.platformio.org/en/latest/)
-* DHT22
-* DOIT ESP32 DEVKIT V1
-* LoRa Trasmitter and Reciver
-* Oled Dispaly
+* UseVSCode ? [PlatformIO](https://docs.platformio.org/en/latest/) : [ArduinoIDE](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
+* DOIT ESP32 DEVKIT V1(MCU)
+* RFM95(LoRa Transceiver)
+* SSD1306(Oled Dispaly)
+* DHT22(Sensor)
 
 ## Authors
 
