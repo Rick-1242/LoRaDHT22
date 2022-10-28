@@ -82,4 +82,4 @@ Don't forget to validate the values produced by the DHT22 with a separate measur
 
 ## Authors
 
-Ueberbacher Riccardo, Cheema Sahib Singh, Lugli Lorenzo, Sebastiano Spada
+Ueberbacher Riccardo, Cheema Sahib Singh, Sebastiano Spada
