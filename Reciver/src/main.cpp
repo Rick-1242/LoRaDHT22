@@ -1,23 +1,21 @@
-/********
+/*********
   Modified from the examples of the Arduino LoRa library
   More resources: https://randomnerdtutorials.com
 *********/
-
+// c
 #include <SPI.h>
 #include <LoRa.h>
-#include <Wire.h>
-#include <DHT.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
 // define the pins used by the transceiver module
 #define ss 5
 #define rst 14
 #define dio0 2
-#define TEMPERATURE 15 // Temp and humidity sensor
-#define DHTTYPE DHT22
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
 
-DHT dht(TEMPERATURE, DHTTYPE);
-
-int counter = 0;
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 void setup()
 {
@@ -25,9 +23,14 @@ void setup()
   Serial.begin(9600);
   while (!Serial)
     ;
-  Serial.println("LoRa Sender");
-
-  dht.begin();
+  Serial.println("LoRa Receiver");
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C))
+  { // Address 0x3D for 128x64
+    Serial.println("SSD1306 allocation failed");
+  }
+  // display.display();
+  // delay(2000);
+  // display.clearDisplay();
 
   // setup LoRa transceiver module
   LoRa.setPins(ss, rst, dio0);
@@ -50,29 +53,28 @@ void setup()
 
 void loop()
 {
-  float h = dht.readHumidity();
-  // Read temperature as Celsius (the default)
-  float t = dht.readTemperature();
-  // Check if any reads failed and exit early (to try again).
-  if (isnan(h) || isnan(t))
+  // try to parse packet
+  String LoRaData;
+  int packetSize = LoRa.parsePacket();
+  if (packetSize)
   {
-    Serial.println("Failed to read from DHT sensor!");
+    // received a packet
+    Serial.print("Received packet '");
+
+    // read packet
+    while (LoRa.available())
+    {
+      display.clearDisplay();
+      LoRaData = LoRa.readString();
+      Serial.print(LoRaData);
+      display.setTextSize(1);
+      display.setTextColor(BLACK, WHITE); // Draw 'inverse' text
+      display.setCursor(0, 10);
+      // Display text
+      display.print(LoRaData);
+      display.print("\nwith RSSI: ");
+      display.print(LoRa.packetRssi());
+      display.display();
+    }
   }
-  float hic = dht.computeHeatIndex(t, h, false);
-  Serial.print("Sending packet: ");
-  Serial.println(counter);
-
-  // Send LoRa packet to receiver
-  LoRa.beginPacket();
-  LoRa.print("\nTemperature: ");
-  LoRa.print(t);
-  LoRa.print("\nHumidity: ");
-  LoRa.print(h);
-  LoRa.print("\nPacket: ");
-  LoRa.print(counter);
-  LoRa.endPacket();
-
-  counter++;
-
-  delay(2000);
 }
