@@ -17,13 +17,13 @@ More information is avaliable [here](About_this_project.pdf).
 > There are 2 programs: Receiver and Transmitter. 
 > So the code has to be built and run on two different instances
 
-Running with VSCode: 
+Running with `VSCode`: 
 
 * Clone the GitHub repository 
 ```sh
 git clone https://github.com/Rick-1242/LoRaDHT22.git
 ```
-* Go to your bash terminal, and change your current directory by the repository folder
+* Go to your bash terminal, and change your current directory to the repository folder `<<Reciver || Trasmitter>>`
 * After that, we can build this code. So, type in a bash terminal the :
 ```sh
 platformio run
@@ -42,10 +42,12 @@ platformio device monitor --port COM[3]
 
 
 Alternatively, you can run the project with the `Arduino IDE`:
-* Clone the GitHub repository
+* Clone the GitHub repository 
+```sh
+git clone https://github.com/Rick-1242/LoRaDHT22.git
+```
 * Go to the `./LoRaDHT22/<<Reciver || Trasmitter>>/src` folder and open the `main.cpp` file with the IDE
 * To install the ESP32 board in your Arduino IDE, follow these instructions:
-  
     1. In your Arduino IDE, go to `File>Preferences`
     2. Enter the following into the “Additional Board Manager URLs” field: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
     3. Then, click the “OK” button     
